@@ -1,0 +1,55 @@
+package opcode_pkg;
+// confirmed correct
+
+    typedef enum logic [7:0] {
+        NOP      = 8'h00,
+        JCN      = 8'h10,
+        FIM      = 8'h20,
+        SRC      = 8'h21,
+        FIN      = 8'h30,
+        JIN      = 8'h31,
+        JUN      = 8'h40,
+        JMS      = 8'h50,
+        INC      = 8'h60,
+        ISZ      = 8'h70,
+        ADD      = 8'h80,
+        SUB      = 8'h90,
+        LD       = 8'hA0,
+        XCH      = 8'hB0,
+        BBL      = 8'hC0,
+        LDM      = 8'hD0,
+
+        WRM      = 8'hE0,
+        WMP      = 8'hE1,
+        WRR      = 8'hE2,
+        WPM      = 8'hE3,
+        WR0      = 8'hE4,
+        WR1      = 8'hE5,
+        WR2      = 8'hE6,
+        WR3      = 8'hE7,
+        SBM      = 8'hE8,
+        RDM      = 8'hE9,
+        RDR      = 8'hEA,
+        ADM      = 8'hEB,
+        RD0      = 8'hEC,
+        RD1      = 8'hED,
+        RD2      = 8'hEE,
+        RD3      = 8'hEF,
+
+        CLB      = 8'hF0,
+        CLC      = 8'hF1,
+        IAC      = 8'hF2,
+        CMC      = 8'hF3,
+        CMA      = 8'hF4,
+        RAL      = 8'hF5,
+        RAR      = 8'hF6,
+        TCC      = 8'hF7,
+        DAC      = 8'hF8,
+        TCS      = 8'hF9,
+        STC      = 8'hFA,
+        DAA      = 8'hFB,
+        KBP      = 8'hFC,
+        DCL      = 8'hFD
+    } opcode_t;
+    
+endpackage
