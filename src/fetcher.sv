@@ -9,6 +9,7 @@ module Fetcher
     /* Fetcher Input */
     input [11:0] pc_in, 
     input fetch_start, 
+    input fetch_done_ack, 
     input [3:0] inst_data_in, 
     input [2:0] inst_len,
     /* Fetcher Output */
@@ -43,6 +44,7 @@ module Fetcher
                 FETCH_OP_B: state <= inst_len == 3'd2 ? FETCH_OP_C : DONE;
                 FETCH_OP_C: state <= FETCH_OP_D;
                 FETCH_OP_D: state <= DONE;
+                DONE: state <= fetch_done_ack ? IDLE : DONE;
                 default: state <= IDLE;
             endcase
         end
