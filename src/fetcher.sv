@@ -74,14 +74,16 @@ module Fetcher
             inst <= 16'd0;
         end else begin
             case (state)
-                IDLE: inst <= inst;
-                DONE: inst <= inst;
-                default: inst <= {inst_data_in, inst[15:4]};
+                FETCH_OP_A: inst <= {inst_data_in, 12'b0};
+                FETCH_OP_B: inst <= {inst[15:12], inst_data_in, 8'b0};
+                FETCH_OP_C: inst <= {inst[15:8], inst_data_in, 4'b0};
+                FETCH_OP_D: inst <= {inst[15:4], inst_data_in};
+                default: inst <= inst;
             endcase
         end
     end
 
-    assign rom_select = (state == IDLE && state == DONE) ? 1'b0 : 1'b1;
+    assign rom_select = (state == IDLE || state == DONE) ? 1'b0 : 1'b1;
     assign inst_out = inst;
 
 endmodule
